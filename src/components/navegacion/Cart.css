@@ -1,0 +1,11 @@
+.Cart img{
+    list-style: none;
+    width: 40px;
+    margin: 10px;
+    
+    
+}
+.Cart li{
+    list-style: none;
+    padding: 5px;
+}

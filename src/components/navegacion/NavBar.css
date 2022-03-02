@@ -13,7 +13,7 @@ header{
     display: table;
     clear: both;
 }
-.barrahorizontal li{
+.Navegacion li{
     font-size: large;
     list-style: none;
     float: left;
@@ -26,4 +26,9 @@ header{
 .barrahorizontal li:hover{
     background: rgb(0, 0, 0);
     color: white;
+}
+
+.Carrito li{
+    list-style: none;
+    float: right;
 }
