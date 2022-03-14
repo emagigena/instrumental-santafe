@@ -1,19 +1,25 @@
 import './App.css';
-import NavBar from './components/navegacion/NavBar'
-import ItemListContein from './components/ItemListContein';
-import ItemCount from './components/ItemCount';
-
+import ItemListContein from './components/body/ItemList/ItemListContein.js';
+import NavBar from './components/navegacion/NavBar.js';
+import Footer from './components/body/Footer.js';
+import ItemDetailContein from './components/body/ItemDetail/ItemDetailContein';
+import {BrowserRouter as Router, Routes, Route, } from 'react-router-dom';
 
 function App() {
   
   return (
 
     <div className="App">
-       <NavBar/>
-     <ItemListContein Saludo="BIENVENIDOS AL CATÁLOGO ONLINE DE INSTRUMENTAL SANTA FE"/>
-     <ItemCount stock={10} initial={1} onAdd/>
+      <Router>
+        <NavBar/>
+          <Routes>
+            <Route path='/' element={<ItemListContein/>}/>
+            <Route path={'/detalle/:id'} element={<ItemDetailContein/>}/>
+          </Routes>
+        <Footer/>
+      </Router>
     </div>
-  );
+  )
 }
 
 export default App;

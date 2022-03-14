@@ -1,0 +1,35 @@
+.ItemDetail {
+    padding: 1em;
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    height: 700px;
+}
+.FirstCol {
+     padding: 12px 0px;
+}
+.FirstCol li{
+    padding-top: 12px;
+}
+.FirstCol img{
+    width: 80px;
+    height: 80px;
+}
+
+.SecondCol{
+    justify-content: center;
+    display: flex;
+}
+.SecondCol img{
+    width: 70%;
+    height: 80%;
+}
+
+.ThirdCol{
+    padding-top: 12px;
+}
+.InfoCard{
+    width: '18rem';
+    padding: 20px;
+}
+/* Hovers */

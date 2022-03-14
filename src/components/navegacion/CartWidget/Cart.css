@@ -1,0 +1,18 @@
+.Cart{
+    margin: 0px;
+    padding: 0px 20px;
+}
+.Cart img, i{
+    width: 30px;
+}
+.Cart li{
+    padding: 0;
+    margin: 0;
+}
+.Cart h6{
+    color: black;
+}
+.Cart li{
+    list-style: none;
+    float:left
+}
