@@ -1,26 +1,23 @@
 import React from 'react';
-import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
 import './Item.css';
-import ShowCarousel from './Carousel/Carousel';
-import { Link } from 'react-router-dom';
-import { NavLink } from 'react-bootstrap';
+//import ShowCarousel from './Carousel/Carousel';
+//import { Link } from 'react-router-dom';
+import { Card } from 'react-bootstrap';
+import ItemCounter from '../../ItemCount/ItemCounter';
+import guitarra from './guitarra.jpg'
 
-function Item ( {prod} ) {
+function Item ( {onAdd} ) {
     return(
-    <li>
-        <Card 
-        // style={{ width: '18rem' }}
-        >
-            <ShowCarousel fotos={prod.fotos}/>
+    
+        <Card style={{width: "18rem"}}>
+            <Card.Img variant="top" img src = {guitarra} className = "guitarra.jpg"/>
             <Card.Body>
-                <Card.Title>{prod.nombre}</Card.Title>
-                <Card.Title>$ {prod.precio}</Card.Title>
-                <Button variant="primary" href={`/detalle/${prod.id}`} >Ver detalle del producto</Button>
-                {/* <Card.Text>Stock disponible: {prod.stock}</Card.Text> */}
+            <Card.Title>Title</Card.Title>
+            <Card.Text>description</Card.Text>
+            <ItemCounter stock={10} initial={1} onAdd={onAdd}/>
             </Card.Body>
         </Card>
-    </li>
+    
     )
 }
 

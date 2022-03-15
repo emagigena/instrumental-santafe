@@ -1,30 +1,25 @@
 import React from "react";
 import logoinstrumental from "./logo instrumental.JPG"
 import './NavBar.css'
-import Cart from "./CartWidget/Cart.js";
+import {Link} from 'react-router-dom';
+import CartWiget from "./CartWidget/Cart.js";
 
 const NavBar = () => {
     return(
         <header>
            <div className = 'barrahorizontal'>
-               <img src = {logoinstrumental} className = 'logo instrumental.JPG'></img>
+               <img src = {logoinstrumental} className = 'logo instrumental.JPG' alt="logo"></img>
                     <nav>
                         <div className ='Navegacion'>
-                            <u1>
-                                <li><a>Inicio</a></li>
-                                <li><a>Instrumentos</a></li>
-                                <li><a>Marcas</a></li>
-                                <li><a>Contacto</a></li>
-                            </u1>
+                            <ul>
+                                <li><Link to = "/">Inicio</Link></li>
+                                <li><Link to = "/categoria/Instrumentos">Instrumentos</Link></li>
+                                <li><Link to = "/categoria/Marcas">Marcas</Link></li>
+                                <li><Link to = "/categoria/Contacto">Contacto</Link></li>
+                            </ul>
                         </div>
                             <div className = "Carrito">
-                                <li><a href="#"> <Cart numero = {"5"}/></a></li>
-                            </div>
-                            <div className='Login'>
-                                <ul>
-                                    <li><a href="#">Iniciar Sesión</a></li>
-                                    <li><a href='#'><Cart number={'5'}/></a></li>
-                                </ul>
+                                <li> <CartWiget numero = {"5"}/></li>
                             </div>
                     </nav>
             </div> 

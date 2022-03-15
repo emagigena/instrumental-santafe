@@ -3,21 +3,31 @@ import ItemList from './ItemList'
 import getPage from '../../../Help'
 import './ItemListContein.css'
 import Spinner from 'react-bootstrap/Spinner'
-import { Link } from 'react-router-dom'
+import {useParams} from 'react-router-dom'
 
-export default function ItemListConteiner(  ) {
+export default function ItemListContein(  ) {
   const [productos, setProductos] = useState([])
   const [loading, setLoading] = useState(true)
+  const {categoriaID} = useParams()
+
+  console.log(categoriaID)
   
   useEffect( () => {
+    if(categoriaID){
     getPage
-    .then   (respuesta => {setProductos(respuesta)})
+    .then   (respuesta => {setProductos(respuesta.filter(prod => prod.categoria === categoriaID))})
     .catch  (error     => {console.log (error)})
     .finally(()        => {setLoading  (false)})
-  },[])
+  }else{
+    getPage
+    .then   (respuesta => {setProductos(respuesta); console.log(respuesta)})
+    .catch  (error     => {console.log (error)})
+    .finally(()        => {setLoading  (false)})
+  }
+  },[categoriaID])
 
   return (
-    <div className='ItemsContainer'>
+    <div className='ItemsContein'>
       { 
         loading ?
           <Spinner animation="border" role="status">

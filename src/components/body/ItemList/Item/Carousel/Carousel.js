@@ -1,14 +1,14 @@
-import React from "react"
-import Carousel from 'react-bootstrap/Carousel';
-import ListPhotosCarousel from './ListPhotosCarousel'
+//import React from "react"
+//import Carousel from 'react-bootstrap/Carousel';
+//import ListPhotosCarousel from './ListPhotosCarousel'
 import './Carousel.css'
 
 
-function ShowCarousel( {fotos} ) {
+function ShowCarousel( {fotos} ) {/*
   return (
 <div>
     <Carousel className='carousell' variant="dark" interval={null}>
-        {/* <ListPhotosCarousel fotos={prod.fotos} /> */}
+        {/* <ListPhotosCarousel fotos={prod.fotos} />
         {/* {fotos}.map( (foto) => <Carousel.Item>
         
         <img 
@@ -18,7 +18,7 @@ function ShowCarousel( {fotos} ) {
         />
           
         </Carousel.Item>  
-        ) */}
+        ) }
         <Carousel.Item>
         <img 
         // className="d-block w-100" 
@@ -43,5 +43,8 @@ function ShowCarousel( {fotos} ) {
     </Carousel>
 </div>
   )
-}
-export default ShowCarousel;
+  */
+  
+
+} 
+  export default ShowCarousel; 

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { Button, Card, FormControl, InputGroup } from 'react-bootstrap'
-import "./ItemCounter.css";
 
+import "./ItemCounter.css";
+import { Button, ButtonGroup, FormControl } from 'react-bootstrap'
 export default function ItemCounter({ stock, initial }) {
 
 
@@ -14,34 +14,45 @@ export default function ItemCounter({ stock, initial }) {
     if (count<stock)setCount(count + 1);
   }
   const onAdd = () =>{
-    if(count !=0)
+    if(count !==0)
     console.log("Se añadió: " + count + " productos")
   }
 
-  const onBuy = () => {
-    console.log("Has comprado" + count + " de este producto")
-  }
+ // const onBuy = () => {
+ // console.log("Has comprado" + count + " de este producto")
+ //}
   return (
-    <div className='CountCard'> 
-        {/* <Card className='CountCard' > */}
-            {/* <Card.Body> */}
-                {/* <Card.Title>Producto X</Card.Title> */}
-                <Card.Text >({stock} disponibles)</Card.Text>
-                    <div className='ImputCantidad'>
-                    <InputGroup>
-                        <Button variant="outline-secondary" onClick={rest}>-</Button>
-                        <FormControl className='Agregar' type="text" placeholder={count}/>
-                        <Button variant="outline-secondary" onClick={sum}>+</Button>
-                    </InputGroup>
-                    </div>
-                    <div className='BuyButton' className="d-grid gap-2">
-                        <Button variant="primary" size='lg' onClick={onBuy}>Comprar ahora</Button>
-                        <Button variant="outline-primary" size='lg' onClick={onAdd}>Agragar al carrito</Button>
-                    </div>
+    <>
+        <ButtonGroup aria-label="Basic example">
+          <Button onClick={rest} variant="secondary">-</Button>
+          <FormControl type="text" placeholder={count} aria-label="Input group example"></FormControl>
+          <Button onClick={sum} variant="secondary">+</Button>  
+        </ButtonGroup>
+        <Button onClick={onAdd} variant="primary" size="lg">
+        Añadir al Carrito
+      </Button>
+      </>
+   // <div className='CountCard'> 
+    //    {/* <Card className='CountCard' > */}
+    //        {/* <Card.Body> */}
+    //            {/* <Card.Title>Producto X</Card.Title> */}
+    //            <Card.Text >({stock} disponibles)</Card.Text>
+    //                <div className='ImputCantidad'>
+    //                <InputGroup>
+    //                    <Button variant="outline-secondary" onClick={rest}>-</Button>
+    //                    <FormControl className='Agregar' type="text" placeholder={count}/>
+    //                    <Button variant="outline-secondary" onClick={sum}>+</Button>
+    //                </InputGroup>
+    //                </div>
+    //                <div className='BuyButton' /*className='d-grid gap-2'*/>
+    //                    <Button variant="primary" size='lg' onClick={onBuy}>Comprar ahora</Button>
+    //                    <Button variant="outline-primary" size='lg' onClick={onAdd}>Agregar al carrito</Button>
+    //                </div>
                     
-            {/* </Card.Body> */}
-        {/* </Card> */}
+    //        {/* </Card.Body> */}
+    //    {/* </Card> */}
 
-    </div>
-)
-}
+    //</div>
+
+  )
+  }

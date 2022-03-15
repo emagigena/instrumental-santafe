@@ -1,5 +1,5 @@
 import React from 'react'
-import { Carousel } from 'bootstrap'
+//import { Carousel } from 'bootstrap'
 
 export default function PhotoCarousel( {foto} ) {
   return (

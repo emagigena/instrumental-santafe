@@ -1,22 +1,22 @@
 import React, { useEffect, useState } from 'react'
 import GetPage from '../../../Help'
 import ItemDetail from './ItemDetail'
-import { Link, useParams } from 'react-router-dom'
+import {useParams } from 'react-router-dom'
 import { Spinner } from 'react-bootstrap'
 import './ItemDetailContein.css'
 
-export default function ItemDetailContein({}) {
+export default function ItemDetailContein() {
   
-  const idLink = useParams();
-
+  
+  const {detalleID} = useParams()
   const [item, setItem] = useState({})
   const [loading , setLoading] = useState(true)
   useEffect(() => {
     GetPage
-    .then   (respuesta => setItem    (respuesta[idLink.id-1]))
+    .then   (respuesta => setItem    (respuesta.find(prod => prod.id === detalleID)))
     .catch  (error     => console.log(error))
     .finally(()        => setLoading (false))
-  }, [] )
+  }, [detalleID] )
 
   return (
     <div className='ItemDetailContein'>
