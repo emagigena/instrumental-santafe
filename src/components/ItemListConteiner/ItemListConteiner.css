@@ -1,0 +1,20 @@
+.ItemsContainer{
+    text-align: center;
+    padding: 1em;
+    background-color: rgb(238, 238, 238);
+    /* max-width: 2000px; */
+}
+.ItemsContainer ul{
+
+}
+.ItemsContainer li{
+    display:    inline-block;
+    list-style: none; 
+    margin: auto;
+    padding: 2em;
+
+}
+.Loading{
+    /* text-align: center; */
+    /* margin: auto; */
+}

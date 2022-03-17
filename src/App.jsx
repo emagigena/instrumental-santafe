@@ -1,35 +1,25 @@
 import './App.css';
-import ItemListContein from './components/body/ItemList/ItemListContein.js';
-import NavBar from './components/navegacion/NavBar.js';
-//import Footer from './components/body/Footer.js';
-//import ItemDetailContein from './components/body/ItemDetail/ItemDetailContein';
-//import {BrowserRouter, Routes, Route, } from 'react-router-dom';
-import Item from './components/body/ItemList/Item/Item';
-import ItemList from './components/body/ItemList/ItemList';
+import ItemListConteiner from './components/ItemListConteiner/ItemListConteiner.js';
+import NavBar from './components/NavBar/NavBar.js';
+import ItemDetailContainer from './components/ItemDetailConteiner/ItemDetailContainer.js';
+import {BrowserRouter as Router, Routes, Route, } from 'react-router-dom';
+import ItemDetail from './components/ItemDetail/ItemDetail';
+//import { Checkout } from "./components/Checkout/Checkout";
 
 function App() {
-  
-    const onAdd = () =>{
-    console.log("agregue al carrito")
-    }
-    return(
-    <div>
-      <NavBar/>
-      <ItemListContein />
-      <ItemList/>
-      <Item onAdd={onAdd}/>
 
+  return(  
+    <div className='App'>
+  
+        <NavBar/>
+       
+          <ItemListConteiner/>
+          <ItemDetailContainer/>
+           
+        
+  
     </div>
     )
-  //  <BrowserRouter className="App">
-  //      <NavBar/>
-  //        <Routes>
-  //        <Route path='/' component={<ItemListContein />} />
-  //        <Route path='/categoria/:categoriaID' component={<ItemListContein />} />
-  //        <Route path={'/detalle/:detalleID'} component={<ItemDetailContein />} />
-  //        </Routes>
-  //  </BrowserRouter>
-
 }
 
 export default App;
