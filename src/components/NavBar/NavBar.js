@@ -1,5 +1,5 @@
 import React from "react";
-import logoinstrumental from "./logo instrumental.JPG"
+import logoinstrumental from "./logoinstrumental.JPG"
 import './NavBar.css'
 import Cart from './CartWidget/CartWidget.js'
 import {Link} from 'react-router-dom';
@@ -8,14 +8,14 @@ export const NavBar = () => {
     return(
         <header>
            <div className = 'barrahorizontal'>
-               <img src = {logoinstrumental} className = 'logo instrumental.JPG' alt="logo"></img>
+               <img src = {logoinstrumental} className = 'logoinstrumental.JPG' alt="logo"></img>
                     <nav>
                         <div className ='Navegacion'>
                             <ul>
-                                <li>Inicio</li>
-                                <li>Instrumentos</li>
-                                <li>Marcas</li>
-                                <li>Contacto</li>
+                                <li><a href="#">Inicio</a></li>
+                                <li><a href="#">Instrumentos</a></li>
+                                <li><a href="#">Marcas</a></li>
+                                <li><a href="#">Contacto</a></li>
                                 <Cart/>
                             </ul>
                         </div> 

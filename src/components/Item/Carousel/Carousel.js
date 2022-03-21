@@ -10,25 +10,17 @@ function ShowCarousel( {fotos} ) {
 
         <Carousel.Item>
         <img 
-  
-        src={fotos} 
+        src={fotos[0].foto} 
         alt="First slide"
         />
         </Carousel.Item>
         <Carousel.Item>
         <img 
   
-        src={fotos} 
+        src={fotos[1].foto} 
         alt="First slide"
         />
         </Carousel.Item>
-        <Carousel.Item>
-        <img
-
-        src={fotos} 
-        alt="First slide"
-        />
-      </Carousel.Item>
     </Carousel>
 </div>
   )

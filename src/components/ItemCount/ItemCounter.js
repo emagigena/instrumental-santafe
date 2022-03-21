@@ -14,19 +14,15 @@ export default function ItemCount ( {stock, initial} ) {
         if(count < stock)setCount(count + 1);
     }
     const onAdd = () => {
-        if(count != 0)
+        if(count !== 0)
         console.log('Se agregó: '+ count + ' productos')
     }
-    
     const onBuy = () => {
         console.log('¡Ustes compró ' + count + ' productos! ¡Felicitaciones!')
     }
 
     return (
     <div className='CountCard'> 
-        {/* <Card className='CountCard' > */}
-            {/* <Card.Body> */}
-                {/* <Card.Title>Producto X</Card.Title> */}
                 <Card.Text >({stock} disponibles)</Card.Text>
                     <div className='ImputCantidad'>
                     <InputGroup>
@@ -36,13 +32,9 @@ export default function ItemCount ( {stock, initial} ) {
                     </InputGroup>
                     </div>
                     <div className='BuyButton' className="d-grid gap-2">
-                        <Button variant="primary" size='lg' onClick={onBuy}>Comprar ahora</Button>
-                        <Button variant="outline-primary" size='lg' onClick={onAdd}>Agragar al carrito</Button>
+                        <Button variant="primary" size='lg' onClick={onBuy}>Comprar esto ahora</Button>
+                        <Button variant="outline-primary" size='lg' onClick={onAdd}>Agregar al carrito</Button>
                     </div>
-                    
-            {/* </Card.Body> */}
-        {/* </Card> */}
-
     </div>
 )
 }

@@ -1,7 +1,11 @@
 .App{
-  background-color: white;
+  background-color: rgb(0, 0, 0);
 
 }
 .ItemListContein{
+  background-color: rgb(0, 0, 0);
   padding: auto;
+}
+.ItemDetailContainer{
+  background-color: rgb(0, 0, 0);
 }

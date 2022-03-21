@@ -3,16 +3,19 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import './Item.css';
 import ShowCarousel from './Carousel/Carousel';
+import { Link } from 'react-router-dom';
 
 function Item ( {prod} ) {
     return(
     <li>
         <Card>
-            <ShowCarousel fotos={prod.fotos[0].foto}/>
+            <ShowCarousel fotos={prod.fotos}/>
             <Card.Body>
                 <Card.Title>{prod.nombre}</Card.Title>
                 <Card.Title>$ {prod.precio}</Card.Title>
-                <Button variant="primary">Ver detalle del producto</Button>
+                <Link to={`/detalle/${prod.id}`}>
+                    <Button variant="primary">Ver el detalle</Button>
+                </Link>
             </Card.Body>
         </Card>
     </li>

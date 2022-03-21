@@ -1,8 +1,9 @@
 .ItemsContainer{
     text-align: center;
     padding: 1em;
-    background-color: rgb(238, 238, 238);
+    background-color: rgb(0, 0, 0);
     /* max-width: 2000px; */
+    
 }
 .ItemsContainer ul{
 

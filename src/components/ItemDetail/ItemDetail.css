@@ -4,6 +4,8 @@
     justify-content: center;
     list-style: none;
     height: 700px;
+    background-color: black;
+    
 }
 .FirstCol {
      padding: 12px 0px;
@@ -21,8 +23,8 @@
     display: flex;
 }
 .SecondCol img{
-    width: 70%;
-    height: 80%;
+    width: 80%;
+    height: 100%;
 }
 
 .ThirdCol{
@@ -30,6 +32,6 @@
 }
 .InfoCard{
     width: '18rem';
-    padding: 20px;
+    padding: 100px;
 }
 /* Hovers */
