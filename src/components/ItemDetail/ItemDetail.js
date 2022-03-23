@@ -3,17 +3,29 @@ import Card from 'react-bootstrap/Card'
 import './ItemDetail.css'
 import { Col, Container, Row } from 'react-bootstrap'
 import ItemCount from '../ItemCount/ItemCounter'
-
+import { Link } from 'react-router-dom'
 
 
 export default function ItemDetail({producto}) {
+  const [state, setState] = useState(true)
   const [foto, setFoto]=useState(producto.fotos[0].foto)
+  const [cantidad,setCantidad] = useState(0)
   const cambiarfoto1 =()=>{
     setFoto(producto.fotos[0].foto)
   }
   const cambiarfoto2 =()=>{
     setFoto(producto.fotos[1].foto)
   }
+    const onAdd = (cantidad) => {
+        if(cantidad !== 0){
+          setCantidad(cantidad)
+          setState(!state)
+          console.log('Se agregaron: '+ cantidad + ' productos')
+        }
+      }
+    const onBuy = () => {
+        console.log('¡Compraste ' + cantidad + ' productos! ¡Felicitaciones!')
+    }
   return (
   <header className='ItemDetail'>
     <Card>
@@ -42,7 +54,10 @@ export default function ItemDetail({producto}) {
                 Este es un producto de nuestra página web, por compra, canje o consulta, 
               porfavor enviar un whatsapp al siguiente número 342111111111, Gracias
                 </Card.Text>
-                  <ItemCount stock={producto.stock} initial={1}/>
+              {state ?
+                  <ItemCount stock={producto.stock} initial={1} onAdd={onAdd}/>
+                  :
+                  <Link to="/Cart"><button variant="primary" size="lg" onClick={onBuy}>Comprar ahora</button></Link>}
               </Card>
             </Col>
           </Row>

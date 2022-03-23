@@ -4,7 +4,7 @@ import './ItemCounter.css'
 
 
 
-export default function ItemCount ( {stock, initial} ) {
+export default function ItemCount ( {stock, initial, onAdd} ) {
     if(stock === 0) initial = 0;
     const [count, setCount] = useState( initial )
     const rest = () =>{
@@ -13,13 +13,7 @@ export default function ItemCount ( {stock, initial} ) {
     const sum = () =>{
         if(count < stock)setCount(count + 1);
     }
-    const onAdd = () => {
-        if(count !== 0)
-        console.log('Se agregó: '+ count + ' productos')
-    }
-    const onBuy = () => {
-        console.log('¡Ustes compró ' + count + ' productos! ¡Felicitaciones!')
-    }
+  
 
     return (
     <div className='CountCard'> 
@@ -32,9 +26,10 @@ export default function ItemCount ( {stock, initial} ) {
                     </InputGroup>
                     </div>
                     <div className='BuyButton' className="d-grid gap-2">
-                        <Button variant="primary" size='lg' onClick={onBuy}>Comprar esto ahora</Button>
-                        <Button variant="outline-primary" size='lg' onClick={onAdd}>Agregar al carrito</Button>
+                        {/*<Button variant="primary" size='lg' onClick={onBuy}>Comprar esto ahora</Button>
+                        <Button variant="outline-primary" size='lg' onClick={onAdd}>Agregar al carrito</Button>*/}
+                        <Button variant="outline-primary" size='lg' onClick={(event)=>{onAdd(count)}}>Agregar al carrito</Button>
                     </div>
     </div>
-)
+    )
 }

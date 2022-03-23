@@ -13,9 +13,9 @@ export default function NavBarExtra() {
   return (
 <Navbar collapseOnSelect expand="lg" bg="secundary" variant="light">
     <Container className='ContainerNavbar'>
-    <img src={logoinstrumental} className='logoinstrumental.JPG' alt='logo' />
+    
         <Link to='/'>
-        <Navbar.Brand ><h6>Inicio</h6></Navbar.Brand>
+        {<Navbar.Brand ><img src={logoinstrumental} className='logoinstrumental.JPG' alt='logo' /></Navbar.Brand>}
         </Link>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
@@ -25,7 +25,7 @@ export default function NavBarExtra() {
                 <NavLink to="categoria/TOKAI"><h6>  TOKAI   </h6> </NavLink>
                 <NavLink to="categoria/LEONARD"><h6>   LEONARD   </h6> </NavLink>
                 <NavLink to="categoria/STAGG"><h6>  STAGG   </h6> </NavLink>
-                {<NavDropdown title="Categorias" id="collasible-nav-dropdown">
+                {/*<NavDropdown title="Categorias" id="collasible-nav-dropdown">
                     <NavDropdown.Item>BAJOS</NavDropdown.Item>
                     <NavDropdown.Item>ELECTROACÚSTICA</NavDropdown.Item>
                     <NavDropdown.Item>ELÉCTRICA</NavDropdown.Item>
@@ -34,7 +34,7 @@ export default function NavBarExtra() {
                     <NavDropdown.Item>AMPLIFICADORES DE BAJO</NavDropdown.Item>
                     <NavDropdown.Item>SONIDO</NavDropdown.Item>
                     <NavDropdown.Divider />
-                </NavDropdown>}
+                </NavDropdown>}*/}
             </Nav>
             <Nav>
                 <Nav.Link href="https://www.facebook.com/david.santafe.108">Página de Facebook</Nav.Link>
