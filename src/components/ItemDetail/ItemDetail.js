@@ -4,12 +4,14 @@ import './ItemDetail.css'
 import { Col, Container, Row } from 'react-bootstrap'
 import ItemCount from '../ItemCount/ItemCounter'
 import { Link } from 'react-router-dom'
+import { useCartContext } from '../Context/CartContext'
 
 
 export default function ItemDetail({producto}) {
   const [state, setState] = useState(true)
   const [foto, setFoto]=useState(producto.fotos[0].foto)
   const [cantidad,setCantidad] = useState(0)
+  const {agregarCart, cartList} = useCartContext()
   const cambiarfoto1 =()=>{
     setFoto(producto.fotos[0].foto)
   }
@@ -22,10 +24,13 @@ export default function ItemDetail({producto}) {
           setState(!state)
           console.log('Se agregaron: '+ cantidad + ' productos')
         }
+        agregarCart({...producto, cantidad:cantidad})
+          console.log(cartList)
       }
     const onBuy = () => {
         console.log('¡Compraste ' + cantidad + ' productos! ¡Felicitaciones!')
     }
+    
   return (
   <header className='ItemDetail'>
     <Card>
