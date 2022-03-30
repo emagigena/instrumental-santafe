@@ -8,28 +8,32 @@ const CartContext = createContext([])
     const [cartList, setCartList] = useState([])
 
     const agregarCart =(Item)=>{
-        if(isInLIst(Item.id)){
-        }else{
-            setCartList( [...cartList,Item] )
-        }
+        const index = cartList.find((prod) => prod.id === Item.id)
+        index ? index.cantidad += Item.cantidad : setCartList( [...cartList,Item] )
     }
-    const isInLIst = (id) =>{
-        console.log(cartList.some((prod) => prod.id === id))
-       return (cartList.some((prod) => prod.id === id))
-    } 
     const borrarItem = (id) =>{
         setCartList( cartList.filter((prod) => prod.id !== id))
     }
     const vaciarCart = ()=>{
         setCartList( [] )
     }
+    const calcularTotal = () => {
+        let suma = 0;
+        cartList.forEach(element => {
+            suma += element.cantidad * element.precio;
+        });
+        return suma
+   }
+   const productosAgregados = () => {
+        let suma = 0;
+        cartList.forEach(element => {
+            suma += element.cantidad
+        });
+    return suma
+   }
     return (
         <CartContext.Provider value={{
-        cartList,
-        agregarCart, 
-        vaciarCart,
-        borrarItem
-        }}>
+            cartList, agregarCart, vaciarCart, borrarItem, calcularTotal, productosAgregados}}>
             {children}
         </CartContext.Provider>
     )

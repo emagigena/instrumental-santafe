@@ -25,9 +25,7 @@ export default function ItemCount ( {stock, initial, onAdd} ) {
                         <Button variant="outline-secondary" onClick={sum}>+</Button>
                     </InputGroup>
                     </div>
-                    <div className='BuyButton' className="d-grid gap-2">
-                        {/*<Button variant="primary" size='lg' onClick={onBuy}>Comprar esto ahora</Button>
-                        <Button variant="outline-primary" size='lg' onClick={onAdd}>Agregar al carrito</Button>*/}
+                    <div className='d-grip gap-2'>
                         <Button variant="outline-primary" size='lg' onClick={(event)=>{onAdd(count)}}>Agregar al carrito</Button>
                     </div>
     </div>

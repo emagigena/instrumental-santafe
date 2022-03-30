@@ -1,15 +1,21 @@
 import cart from './CartWidget.svg';
 import './CartWidget.css'
+import { Button } from 'bootstrap'
+import { Link } from 'react-router-dom'
 
 function CartWiget(obj){
 return (
-        <div className='Cart'>
-            <ul>    
-                <li><img src={cart} alt="cart"/></li>
-                {/* <i class="bi bi-cart-x"></i> */}
-                <li><h6>{obj.number}</h6></li>
-            </ul>
-        </div>
+        <Link to = '/Cart'>
+            <div className='Cart'>
+                <img src = {cart} alt = 'cart' />
+                {
+                    obj.number ?
+                        <span class = 'badge bg-primary'>{obj.number}</span>
+                        :
+                        <></>
+                }
+            </div>
+        </Link>
 )
 }
 

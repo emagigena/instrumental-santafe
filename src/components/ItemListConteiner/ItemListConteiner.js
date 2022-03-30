@@ -2,14 +2,13 @@ import React, { useEffect, useState } from 'react'
 import ItemList from '../../components/ItemList/ItemList.js'
 import './ItemListConteiner.css'
 import Spinner from 'react-bootstrap/Spinner'
-import { Link, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import GetPage from '../Help.js'
 
 export default function ItemListConteiner(  ) {
   const [productos, setProductos] = useState([])
   const [loading, setLoading] = useState(true)
   const {categoriaID} = useParams()
-  console.log(categoriaID)
   useEffect( () => {
     if(categoriaID){
       GetPage

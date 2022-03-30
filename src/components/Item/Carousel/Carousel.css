@@ -2,11 +2,11 @@
     height: 400px;
     max-width: 400px;
     background-color: black;
-    border-radius: 10%;
     text-align: center;
 }
 .carousell{
     /* height: auto; */
     width: 400px;
-    background-color: black;
+    background-color: rgb(0, 0, 0);
+    
 }

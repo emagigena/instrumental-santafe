@@ -1,10 +1,10 @@
 .ItemDetail {
     padding: 1em;
-    display: flex;
+    display:block;
     justify-content: center;
     list-style: none;
-    height: 700px;
-    background-color: black;
+    height: 2500px;
+    background: linear-gradient(45deg, rgb(131, 209, 29),rgb(67, 78, 47),rgb(135, 84, 253),rgb(250, 208, 19));
     
 }
 .FirstCol {
@@ -34,4 +34,3 @@
     width: '18rem';
     padding: 100px;
 }
-/* Hovers */

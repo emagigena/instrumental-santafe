@@ -5,12 +5,15 @@ import ItemDetailContainer from './components/ItemDetailConteiner/ItemDetailCont
 import {BrowserRouter as Router, Routes, Route, } from 'react-router-dom';
 import Cart from './components/Cart/Cart';
 import CartContextProvider from './components/Context/CartContext';
+//import FirebaseComponent from "./components/FirebaseComponent"
 
 
 function App() {
 
   return(  
     <div className='App'>
+      {/*<style>
+        <section className='style'>*/
       <CartContextProvider>
         <Router>
           <NavBar/>
@@ -19,9 +22,12 @@ function App() {
               <Route path='/cart' element={<Cart/>}/>
               <Route path={'/categoria/:categoriaID'} element={<ItemListConteiner />} />
               <Route path={'/detalle/:detalleID'} element={<ItemDetailContainer />} />
+              {/*<Route path='/Firebase' element={<FirebaseComponent/>} />*/}
             </Routes>
           </Router>
         </CartContextProvider>
+      /*  </section>
+  </style>*/}
     </div>
     )
 }

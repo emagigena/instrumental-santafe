@@ -7,9 +7,11 @@ import './NavBarExtra.css'
 import Cart from './CartWidget/CartWidget.js'
 import logoinstrumental from './logoinstrumental.JPG'
 import { Link , NavLink } from 'react-router-dom'
+import { useCartContext } from '../Context/CartContext'
 
 
 export default function NavBarExtra() {
+    const{productosAgregados} = useCartContext()
   return (
 <Navbar collapseOnSelect expand="lg" bg="secundary" variant="light">
     <Container className='ContainerNavbar'>
@@ -25,6 +27,7 @@ export default function NavBarExtra() {
                 <NavLink to="categoria/TOKAI"><h6>  TOKAI   </h6> </NavLink>
                 <NavLink to="categoria/LEONARD"><h6>   LEONARD   </h6> </NavLink>
                 <NavLink to="categoria/STAGG"><h6>  STAGG   </h6> </NavLink>
+                <NavLink to="/firebase"><h6>Firebase</h6></NavLink>    
                 {/*<NavDropdown title="Categorias" id="collasible-nav-dropdown">
                     <NavDropdown.Item>BAJOS</NavDropdown.Item>
                     <NavDropdown.Item>ELECTROACÚSTICA</NavDropdown.Item>
@@ -38,10 +41,11 @@ export default function NavBarExtra() {
             </Nav>
             <Nav>
                 <Nav.Link href="https://www.facebook.com/david.santafe.108">Página de Facebook</Nav.Link>
+                <Nav.Link href="#deets">Favoritos</Nav.Link>
+                <Cart number={productosAgregados()}/>
             </Nav>
         </Navbar.Collapse>
     </Container>
-    <Cart number={'5'}/>
 </Navbar>
   )
 }

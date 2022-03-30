@@ -22,7 +22,7 @@ export default function ItemDetail({producto}) {
         if(cantidad !== 0){
           setCantidad(cantidad)
           setState(!state)
-          console.log('Se agregaron: '+ cantidad + ' productos')
+          //console.log('Se agregaron: '+ cantidad + ' productos')
         }
         agregarCart({...producto, cantidad:cantidad})
           console.log(cartList)
@@ -62,7 +62,7 @@ export default function ItemDetail({producto}) {
               {state ?
                   <ItemCount stock={producto.stock} initial={1} onAdd={onAdd}/>
                   :
-                  <Link to="/Cart"><button variant="primary" size="lg" onClick={onBuy}>Comprar ahora</button></Link>}
+                  <Link to = "/Cart"><button variant = "primary" size = "lg">Comprar Ahora</button></Link>}
               </Card>
             </Col>
           </Row>

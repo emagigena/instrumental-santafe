@@ -3,6 +3,12 @@
     padding: 1em;
     background-color: rgb(0, 0, 0);
     /* max-width: 2000px; */
+    padding: 1em;
+    display:block;
+    justify-content: center;
+    list-style: none;
+    height: 2500px;
+    background: linear-gradient(45deg, rgb(131, 209, 29),rgb(67, 78, 47),rgb(135, 84, 253),rgb(250, 208, 19));
     
 }
 .ItemsContainer ul{
