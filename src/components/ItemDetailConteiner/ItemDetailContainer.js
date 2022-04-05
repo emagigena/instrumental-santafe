@@ -4,6 +4,7 @@ import ItemDetail from '../ItemDetail/ItemDetail'
 import { Spinner } from 'react-bootstrap'
 import './ItemDetailContainer.css'
 import {Link, useParams } from 'react-router-dom'
+import {doc, getDoc, getFirestore} from "firebase/firestore"
 
 export default function ItemDetailContainer({}) {
   
@@ -11,17 +12,18 @@ export default function ItemDetailContainer({}) {
 
   const [item, setItem] = useState({})
   
-  const [loading , setLoading] = useState(true)
+  const [loading , setLoading] = useState(true)   
 
-
-  useEffect(() => {
-    
-    GetPage
-    .then   (respuesta => setItem    (respuesta.find(prod => prod.id === detalleID)))
-    .catch  (error     => console.log(error))
-    .finally(()        => setLoading (false))
-  }, [] )   
-  return (
+    useEffect(() =>{
+      
+      const db = getFirestore()
+      const queryDb = doc (db, 'productos', detalleID)
+      getDoc(queryDb)
+        .then   (respuesta => setItem( { id: respuesta.id , ...respuesta.data() } ))
+        .catch  (error     => {console.log ( error )})
+        .finally(()        => {setLoading  ( false )})
+    },[])
+    return (
     <div className='ItemDetailContainer'>
       {
         loading ?

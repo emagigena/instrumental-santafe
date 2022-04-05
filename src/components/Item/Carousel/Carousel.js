@@ -10,14 +10,14 @@ function ShowCarousel( {fotos} ) {
 
         <Carousel.Item>
         <img 
-        src={fotos[0].foto} 
+        src={fotos[0]} 
         alt="First slide"
         />
         </Carousel.Item>
         <Carousel.Item>
         <img 
   
-        src={fotos[1].foto} 
+        src={fotos[1]} 
         alt="First slide"
         />
         </Carousel.Item>

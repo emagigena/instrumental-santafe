@@ -4,22 +4,26 @@ import './ItemListConteiner.css'
 import Spinner from 'react-bootstrap/Spinner'
 import { useParams } from 'react-router-dom'
 import GetPage from '../Help.js'
+import {collection, getDocs, getFirestore, query, where} from 'firebase/firestore'
 
 export default function ItemListConteiner(  ) {
   const [productos, setProductos] = useState([])
   const [loading, setLoading] = useState(true)
   const {categoriaID} = useParams()
   useEffect( () => {
-    if(categoriaID){
-      GetPage
-      .then   (respuesta => {setProductos(respuesta.filter(prod => prod.categoria === categoriaID))})
-      .catch  (error     => {console.log (error)})
-      .finally(()        => {setLoading  (false)})
-    }else{
-      GetPage
-      .then   (respuesta => {setProductos(respuesta)})
-      .catch  (error     => {console.log (error)})
-      .finally(()        => {setLoading  (false)})
+      const db = getFirestore()
+      const queryDb = collection (db, 'productos')
+      if(categoriaID !== undefined){
+          const queryFilltrado = query ( queryDb , where('categoria', '==', categoriaID) )
+          getDocs(queryFilltrado)
+          .then   (respuesta => {setProductos( respuesta.docs.map(item =>( { id: item.id , ...item.data() }) ))})
+          .catch  (error     => {console.log ( error )})
+          .finally(()        => {setLoading  ( false )})
+      }else{
+        getDocs(queryDb)
+        .then   (respuesta => {setProductos( respuesta.docs.map(item =>( { id: item.id , ...item.data() }) ) )})
+        .catch  (error     => {console.log ( error )})
+        .finally(()        => {setLoading  ( false )})
     }
   },[categoriaID])
   return (

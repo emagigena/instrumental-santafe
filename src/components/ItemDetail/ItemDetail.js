@@ -9,23 +9,22 @@ import { useCartContext } from '../Context/CartContext'
 
 export default function ItemDetail({producto}) {
   const [state, setState] = useState(true)
-  const [foto, setFoto]=useState(producto.fotos[0].foto)
+  const [foto, setFoto] = useState(producto.fotos[0])
   const [cantidad,setCantidad] = useState(0)
-  const {agregarCart, cartList} = useCartContext()
+  const {agregarCart} = useCartContext()
   const cambiarfoto1 =()=>{
-    setFoto(producto.fotos[0].foto)
+    setFoto(producto.fotos[0])
   }
   const cambiarfoto2 =()=>{
-    setFoto(producto.fotos[1].foto)
+    setFoto(producto.fotos[1])
   }
     const onAdd = (cantidad) => {
         if(cantidad !== 0){
           setCantidad(cantidad)
           setState(!state)
-          //console.log('Se agregaron: '+ cantidad + ' productos')
         }
         agregarCart({...producto, cantidad:cantidad})
-          console.log(cartList)
+      
       }
     const onBuy = () => {
         console.log('¡Compraste ' + cantidad + ' productos! ¡Felicitaciones!')
@@ -39,12 +38,12 @@ export default function ItemDetail({producto}) {
             <Col className='FirstCol' xs={1}>
               <li onClick={cambiarfoto1}>
                 <Card>
-                <img src={producto.fotos[0].foto} />
+                <img src={producto.fotos[0]} />
                 </Card>
               </li>
               <li onClick={cambiarfoto2}>
                 <Card>
-                  <img src={producto.fotos[1].foto} />
+                  <img src={producto.fotos[1]} />
                 </Card>
               </li>
             </Col>

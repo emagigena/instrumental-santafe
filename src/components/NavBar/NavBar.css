@@ -8,7 +8,7 @@
     float: center;
 }
 header{
-    background: rgb(247, 245, 245);
+    background: rgb(250, 250, 250);
     width: 100%;
     display: table;
     clear: both;
@@ -18,11 +18,11 @@ header{
     font-size: large;
     list-style: none;
     float: left;
-    padding: 21px;
+    
 }
 .barrahorizontal a{
     text-decoration: none;
-    color: black;
+    
 }
 .barrahorizontal li:hover{
     background: rgb(0, 0, 0);

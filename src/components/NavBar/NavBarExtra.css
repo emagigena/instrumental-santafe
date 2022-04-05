@@ -2,12 +2,14 @@
     width: 63px;
     padding: 0px;
     float: center;
+    
 }
 .ContainerNavbar{
+    
     font-style: none;
     text-decoration: none;
     float: left;
-    background: rgb(245, 243, 243);
+    background: rgb(239, 239, 239);
     width: 100%;
     display: table;
     clear: both;
@@ -16,7 +18,7 @@
 
 .NavLink{
     list-style: none;
-    padding: 5px;
+    padding: 0px;
     font-display: 100px;
     color: black;
     font-size: large;
@@ -25,7 +27,7 @@
 }
 
 .Cart{
-    background-color: white;
+    background-color: rgb(245, 245, 245);
     padding: 0px;
     max-width: 100%;
 }

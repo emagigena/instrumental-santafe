@@ -5,6 +5,8 @@ import ItemDetailContainer from './components/ItemDetailConteiner/ItemDetailCont
 import {BrowserRouter as Router, Routes, Route, } from 'react-router-dom';
 import Cart from './components/Cart/Cart';
 import CartContextProvider from './components/Context/CartContext';
+import Inicio from './components/Inicio/InicioContainer';
+
 //import FirebaseComponent from "./components/FirebaseComponent"
 
 
@@ -18,10 +20,10 @@ function App() {
         <Router>
           <NavBar/>
             <Routes>
-              <Route path='/' element={<ItemListConteiner/>}/>
-              <Route path='/cart' element={<Cart/>}/>
-              <Route path={'/categoria/:categoriaID'} element={<ItemListConteiner />} />
-              <Route path={'/detalle/:detalleID'} element={<ItemDetailContainer />} />
+               {<Route path='/' element={<Inicio/>}/>}
+              {<Route path='/cart' element={<Cart/>}/>}
+              {<Route path={'/categoria/:categoriaID'} element={<ItemListConteiner />} />}
+              {<Route path={'/detalle/:detalleID'} element={<ItemDetailContainer />} />}
               {/*<Route path='/Firebase' element={<FirebaseComponent/>} />*/}
             </Routes>
           </Router>

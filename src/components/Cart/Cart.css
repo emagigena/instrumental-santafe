@@ -1,7 +1,14 @@
-div{
+.descripcionCart{
     text-align: center;
     color: rgb(0, 0, 0);
+    background-color: white;
+    margin: 10px 280px;
+
     
+}
+
+.my-2{
+    padding: 10px;
 }
 
 

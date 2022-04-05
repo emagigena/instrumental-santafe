@@ -3,6 +3,5 @@
     display: flex;
     justify-content: center;
     list-style: none;
-    height: 700px;
-    background: linear-gradient(45deg, red,rgb(67, 78, 47),green,black);
+    height: 1200px;
 }

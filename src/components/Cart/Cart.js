@@ -19,6 +19,7 @@ import {Col, Container, Row} from "react-bootstrap"
           <Link to="/" className="btn btn-success mx-2">Inicio</Link>
         </div>
         :
+        <div className='descripcionCart'>
         <div className="container my-4">
           <h4>Descripción de tu pedido:</h4>
               <hr/>
@@ -32,12 +33,13 @@ import {Col, Container, Row} from "react-bootstrap"
                   <Col xs={1}></Col>
                 </Row>
               </Container>
+          
           {
             cartList.map((item) => (
               <div key={item.id} className='mt-3'>
               <Container>
                 <Row>
-                  <Col xs={2}><img src={item.fotos[0].foto} class="rounded" width={'150'}></img></Col>
+                  <Col xs={2}><img src={item.fotos[0]} class="rounded" width={'150'}></img></Col>
                   <Col xs={5}><h4>{item.nombre}</h4></Col>
                   <Col xs={1}><h5>${item.precio}</h5></Col>
                   <Col xs={1}><p>Cantidad: {item.cantidad}</p></Col>
@@ -55,7 +57,9 @@ import {Col, Container, Row} from "react-bootstrap"
                 <Link to="/" className="btn btn-success mx-2">Terminar mi compra</Link>
               </div>
             </div>
+            </div>
           }
+          
     </div>
   )
 }
