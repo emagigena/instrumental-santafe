@@ -3,7 +3,6 @@ import ItemList from '../../components/ItemList/ItemList.js'
 import './ItemListConteiner.css'
 import Spinner from 'react-bootstrap/Spinner'
 import { useParams } from 'react-router-dom'
-import GetPage from '../Help.js'
 import {collection, getDocs, getFirestore, query, where} from 'firebase/firestore'
 
 export default function ItemListConteiner(  ) {
@@ -30,12 +29,8 @@ export default function ItemListConteiner(  ) {
     <div className='ItemsContainer'>
       { 
         loading ?
-          <Spinner animation="border" role="status">
-            <span className="visually-hidden">Cargando...</span>
-          </Spinner>
-  //         <h1 className='Loading'>Cargando...</h1> : 
-        :
-          <ItemList  productos = {productos} />  
+        <Spinner animation="grow" />:
+        <ItemList  productos = {productos} />  
       }
     </div>
 

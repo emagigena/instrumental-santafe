@@ -1,0 +1,32 @@
+h1{
+    color: white;
+    background-color: black;
+}
+.d-flex{
+    
+    float: left;
+    margin: 0 35px;
+    padding: 10px;
+    transition: transform .2s;
+}
+.d-flex:hover{
+    transform: scale(1.1)
+}
+.d-flex2{
+    padding: 10px;
+   float: left;
+    margin: 0 35px;
+    transition: transform .2s;
+}   
+.d-flex2:hover{
+    transform: scale(1.1)
+} 
+.d-flex3{
+    padding: 10px;
+    float: left;
+    margin: 0 35px;
+    transition: transform .2s;
+}
+.d-flex3:hover{
+    transform: scale(1.1)
+}

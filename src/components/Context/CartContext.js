@@ -7,7 +7,7 @@ const CartContext = createContext([])
  function CartContextProvider({ children }){
     const [cartList, setCartList] = useState([])
 
-    const agregarCart =(Item)=>{
+    const agregarCart = (Item) =>{
         const index = cartList.find((prod) => prod.id === Item.id)
         index ? index.cantidad += Item.cantidad : setCartList( [...cartList,Item] )
     }

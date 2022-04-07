@@ -60,7 +60,7 @@ const GetPage = new Promise( (resolve, reject) => {
     if (url === 'instrumentalsantafe.com'){
         setTimeout(() => {
             resolve(productos)
-        },2000 )
+        },3000 )
     }else{
         reject('404 not found')
     }

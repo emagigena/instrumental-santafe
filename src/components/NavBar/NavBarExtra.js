@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Container from 'react-bootstrap/Container'
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
@@ -10,8 +10,10 @@ import { useCartContext } from '../Context/CartContext'
 import { LinkContainer } from "react-router-bootstrap"
 import { Link, NavLink } from 'react-router-dom'
 
+
 export default function NavBarExtra() {
     const{productosAgregados} = useCartContext()
+    const[isLogin, setIsLogin] = useState(false)
   return (
     <Navbar collapseOnSelect expand="lg" bg="secundary" variant="light">
         <Container className='ContainerNavbar'>
@@ -23,11 +25,12 @@ export default function NavBarExtra() {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className='me-auto'>
-                <NavLink to="categoria/EKO"><h6>   EKO   </h6></NavLink>
-                <NavLink to="categoria/DANELECTRO"><h6>   DANELECTRO   </h6></NavLink>
-                <NavLink to="categoria/TOKAI"><h6>  TOKAI   </h6> </NavLink>
-                <NavLink to="categoria/LEONARD"><h6>   LEONARD   </h6> </NavLink>
-                <NavLink to="categoria/STAGG"><h6>  STAGG   </h6> </NavLink>
+                
+                {<NavLink to="categoria/EKO"><h6>   EKO   </h6></NavLink>}
+                {<NavLink to="categoria/DANELECTRO"><h6>   DANELECTRO   </h6></NavLink>}
+                {<NavLink to="categoria/TOKAI"><h6>  TOKAI   </h6> </NavLink>}
+                {<NavLink to="categoria/LEONARD"><h6>   LEONARD   </h6> </NavLink>}
+                {<NavLink to="categoria/STAGG"><h6>  STAGG   </h6> </NavLink>}
                 {/*<NavDropdown title="categorias" id="collasible-nav-dropdown">
                     <LinkContainer to="categoria/EKO"><NavDropdown.Item>EKO</NavDropdown.Item>
                     </LinkContainer>
@@ -51,7 +54,7 @@ export default function NavBarExtra() {
             </Nav>
             <Nav>
                 <Nav.Link href="https://www.facebook.com/david.santafe.108">Página de Facebook</Nav.Link>
-                <Nav.Link href="deets">Favoritos</Nav.Link>
+                {/*<Nav.Link href="deets">Favoritos</Nav.Link>*/}
                 <Cart number={productosAgregados()}/>
             </Nav>
         </Navbar.Collapse>

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import GetPage from '../Help.js'
 import ItemDetail from '../ItemDetail/ItemDetail'
 import { Spinner } from 'react-bootstrap'
 import './ItemDetailContainer.css'
@@ -16,9 +15,9 @@ export default function ItemDetailContainer({}) {
 
     useEffect(() =>{
       
-      const db = getFirestore()
-      const queryDb = doc (db, 'productos', detalleID)
-      getDoc(queryDb)
+    const db = getFirestore()
+    const queryDb = doc (db, 'productos', detalleID)
+    getDoc(queryDb)
         .then   (respuesta => setItem( { id: respuesta.id , ...respuesta.data() } ))
         .catch  (error     => {console.log ( error )})
         .finally(()        => {setLoading  ( false )})
@@ -27,11 +26,9 @@ export default function ItemDetailContainer({}) {
     <div className='ItemDetailContainer'>
       {
         loading ?
-        <Spinner animation="border" role="status">
-            <span className="visually-hidden">Cargando...</span>
-        </Spinner> :
+        <Spinner animation="grow" /> :
         <ItemDetail producto={item} />    
       }
-        </div>
+    </div>
   )
 }
