@@ -7,8 +7,7 @@ import Cart from './components/Cart/Cart';
 import CartContextProvider from './components/Context/CartContext';
 import Inicio from './components/Inicio/InicioContainer';
 import UserContextProvider from './components/Context/UserContext';
-import LoginUser from './components/User/LoginUser'
-import InfoUser from './components/User/InfoUser'
+
 
 
 
@@ -22,16 +21,14 @@ function App() {
         <Router>
           <NavBar/>
             <Routes>
-               {<Route path='/' element={<Inicio/>}/>}
-              {<Route path='/cart' element={<Cart/>}/>}
+              {<Route path='/' element={<Inicio/>}/>}
+              {<Route path='/Cart' element={<Cart/>}/>}
               {<Route path={'/categoria/:categoriaID'} element={<ItemListConteiner />} />}
               {<Route path={'/detalle/:detalleID'} element={<ItemDetailContainer />} />}
-              { <Route path={'/login'} element={<LoginUser/>}/> }
-              { <Route path={'/infouser'} element={<InfoUser/>}/> }
             </Routes>
           </Router>
         </UserContextProvider>
-        </CartContextProvider>
+      </CartContextProvider>
      }
     </div>
     )

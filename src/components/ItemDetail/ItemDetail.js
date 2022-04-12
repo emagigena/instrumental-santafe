@@ -5,6 +5,8 @@ import { Col, Container, Row } from 'react-bootstrap'
 import ItemCount from '../ItemCount/ItemCounter'
 import { Link } from 'react-router-dom'
 import { useCartContext } from '../Context/CartContext'
+import { LinkContainer } from 'react-router-bootstrap'
+import { Button } from 'bootstrap'
 
 
 export default function ItemDetail({producto}) {
@@ -26,9 +28,6 @@ export default function ItemDetail({producto}) {
         agregarCart({...producto, cantidad:cantidad})
       
       }
-    const onBuy = () => {
-        console.log('¡Compraste ' + cantidad + ' productos! ¡Felicitaciones!')
-    }
     
   return (
   <header className='ItemDetail'>
@@ -59,9 +58,12 @@ export default function ItemDetail({producto}) {
               porfavor enviar un whatsapp al siguiente número 342111111111, Gracias
                 </Card.Text>
               {state ?
-                  <ItemCount stock={producto.stock} initial={1} onAdd={onAdd}/>
-                  :
-                  <Link to = "/Cart"><button variant = "primary" size = "lg">Comprar Ahora</button></Link>}
+                <ItemCount stock={producto.stock} initial={1} onAdd={onAdd}/>
+                :
+                <LinkContainer to="/Cart">
+                <button variant="primary" size='lg' >Comprar ahora</button>
+                </LinkContainer>
+              }
               </Card>
             </Col>
           </Row>

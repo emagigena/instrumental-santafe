@@ -4,7 +4,7 @@ const UserContext = createContext([])
 
 export const useUserContext = () => useContext(UserContext)
 
-function userContextProvider ({children}){
+function UserContextProvider ({children}){
     const [User, setUser] = useState()
     const getUser = ({password, mail}) => {
         const db = getFirestore()
@@ -19,4 +19,4 @@ function userContextProvider ({children}){
     </UserContext.Provider>
   )
 }
-export default userContextProvider
+export default UserContextProvider

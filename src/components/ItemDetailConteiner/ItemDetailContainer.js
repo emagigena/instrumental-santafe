@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import ItemDetail from '../ItemDetail/ItemDetail'
 import { Spinner } from 'react-bootstrap'
 import './ItemDetailContainer.css'
-import {Link, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import {doc, getDoc, getFirestore} from "firebase/firestore"
 
 export default function ItemDetailContainer({}) {

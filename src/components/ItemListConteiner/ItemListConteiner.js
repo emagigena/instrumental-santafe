@@ -9,23 +9,27 @@ export default function ItemListConteiner(  ) {
   const [productos, setProductos] = useState([])
   const [loading, setLoading] = useState(true)
   const {categoriaID} = useParams()
+
   useEffect( () => {
-      const db = getFirestore()
-      const queryDb = collection (db, 'productos')
-      if(categoriaID !== undefined){
-          const queryFilltrado = query ( queryDb , where('categoria', '==', categoriaID) )
-          getDocs(queryFilltrado)
-          .then   (respuesta => {setProductos( respuesta.docs.map(item =>( { id: item.id , ...item.data() }) ))})
-          .catch  (error     => {console.log ( error )})
-          .finally(()        => {setLoading  ( false )})
-      }else{
-        getDocs(queryDb)
-        .then   (respuesta => {setProductos( respuesta.docs.map(item =>( { id: item.id , ...item.data() }) ) )})
+
+    const db = getFirestore()
+
+    const queryDb = collection (db, 'productos')
+
+        const queryAFiltrar = categoriaID ?  query ( queryDb , where('categoria', '==', categoriaID) ) : queryDb
+
+        getDocs(queryAFiltrar)
+
+        .then   (respuesta => {setProductos( respuesta.docs.map(item =>( { id: item.id , ...item.data() }) ))})
+
         .catch  (error     => {console.log ( error )})
+
         .finally(()        => {setLoading  ( false )})
-    }
-  },[categoriaID])
+
+},[categoriaID])
+ 
   return (
+    <div className='container'>
     <div className='ItemsContainer'>
       { 
         loading ?
@@ -33,6 +37,8 @@ export default function ItemListConteiner(  ) {
         <ItemList  productos = {productos} />  
       }
     </div>
-
+    </div>
   )
 }
+
+
