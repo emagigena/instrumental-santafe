@@ -60,9 +60,9 @@ export default function ItemDetail({producto}) {
               {state ?
                 <ItemCount stock={producto.stock} initial={1} onAdd={onAdd}/>
                 :
-                <LinkContainer to="/Cart">
-                <button variant="primary" size='lg' >Comprar ahora</button>
-                </LinkContainer>
+                <Link to="/Cart">
+                  <button variant= "primary" size="lg">Comprar Ahora</button>
+                </Link>
               }
               </Card>
             </Col>

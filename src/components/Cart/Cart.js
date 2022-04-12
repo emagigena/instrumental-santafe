@@ -89,13 +89,12 @@ const handleOnChange = (e) =>{
           <div>
           { 
           (productosAgregados() === 0) ?
-            <div className="container my-5">
+            <div className="container my-4">
               <h4>El carrito de compras está vacío</h4>
               <h4>Podés agregar productos desde el botón de "añadir al carrito"</h4>
               <Link to="/" className="btn btn-success mx-2">Inicio</Link>
             </div>
-          :
-            
+            :
             <div className="container my-4">
               <h4>Carrito de compras:</h4>
               <hr/>
@@ -125,7 +124,6 @@ const handleOnChange = (e) =>{
                 </Row>
               </Container>
               </div>
-            
             ))
           }
               <hr/>
@@ -133,7 +131,6 @@ const handleOnChange = (e) =>{
               <div className="formulario">
               <h2> Datos de comprador:</h2>
               <Form>
-                <Row className="mb-3">
                   <Form.Group as={Col} controlId="formGridNombre">
                   <Form.Label>Nombre</Form.Label>
                   <Form.Control 
@@ -153,7 +150,7 @@ const handleOnChange = (e) =>{
                   value={dataFormulario.apellido} 
                   onChange={handleOnChange}/>
                   </Form.Group>
-                  </Row>
+                  
 
                   <Form.Group className="mb-3" controlId="formGridmail">
                   <Form.Label>Dirección de correo electrónico</Form.Label>
@@ -194,11 +191,11 @@ const handleOnChange = (e) =>{
                   value={dataFormulario.contraseña} 
                   onChange={handleOnChange}/>
                   </Form.Group>
-
-                <Button onClick={vaciarCart} variant="danger">Vaciar Carrito</Button>{' '}
-                <Button onClick={generarOrden} variant="success">Terminar compra</Button>
+                  <button onClick={vaciarCart} variant="danger">Vaciar el carrito</button>{' '}
+                  <Link to="/"><button variant="primary">Volver al Catálogo</button></Link>
+                  <button onClick={generarOrden} variant ="success">Finalizar compra</button>
               </Form>
-          </div>
+              </div>
         </div>
       }
     </div>
