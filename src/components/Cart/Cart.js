@@ -108,7 +108,7 @@ import {getFirestore, collection, addDoc, documentId, writeBatch, getDocs, where
               <hr/>
               <h2>Total: ${calcularTotal()}</h2>
               <div className="formulario">
-              <h2> Datos del comprador:</h2>
+              <h2> Formulario de Compra:</h2>
               <form onSubmit={generarOrden}>
                 <div className='form-group'>
                 <label>Nombre</label>

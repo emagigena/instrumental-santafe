@@ -5,7 +5,7 @@
   height: 100vh;
   display: block;
   justify-content: center;
-  background: linear-gradient(45deg, rgb(131, 209, 29),rgb(135, 84, 253),rgb(250, 208, 19),rgb(250, 208, 19));
+  background: linear-gradient(45deg, rgb(16, 36, 65),rgb(65, 75, 87),rgb(0, 0, 0),rgb(0, 0, 0));
   position: relative;
-  height: 1500px;
+  height: 2000px;
 }

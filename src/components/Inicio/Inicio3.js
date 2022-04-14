@@ -12,7 +12,7 @@ export default function Inicio3() {
     <Card.Body>
     <Card.Title>Individuales</Card.Title>
         <Card.Text>
-        Percusión, Baterías eléctricas y acústicas, y mucho más
+        Efectos, Multiefectos, chorus, overdrive, todo para tu pedalboard
         </Card.Text>
        
     </Card.Body>
@@ -23,9 +23,9 @@ export default function Inicio3() {
     <Card style={{ width: '18rem' }}>
     <Card.Img variant="top" src="https://firebasestorage.googleapis.com/v0/b/instrumental-santa-fe.appspot.com/o/DSC_0105%20(1).JPG?alt=media&token=da176ac0-cafa-4fba-bb70-903a7bd7f6d0" />
     <Card.Body>
-    <Card.Title>Percusión</Card.Title>
+    <Card.Title>Guitarras</Card.Title>
         <Card.Text>
-        Percusión, Baterías eléctricas y acústicas, y mucho más
+        Cuerdas, eléctricas y acústicas, Fender - Parquer - LesPaul
         </Card.Text>
        
     </Card.Body>
@@ -35,9 +35,9 @@ export default function Inicio3() {
     <Card style={{ width: '18rem' }}>
     <Card.Img variant="top" src="https://firebasestorage.googleapis.com/v0/b/instrumental-santa-fe.appspot.com/o/DSC_0838.JPG?alt=media&token=b835dba3-3b98-4266-bd04-3f7f83862e74" />
     <Card.Body>
-    <Card.Title>Percusión</Card.Title>
+    <Card.Title>Guitarras</Card.Title>
         <Card.Text>
-        Percusión, Baterías eléctricas y acústicas, y mucho más
+        Cuerdas, eléctricas y acústicas, Fender - Parquer - LesPaul
         </Card.Text>
        
     </Card.Body>

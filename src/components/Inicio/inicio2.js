@@ -38,7 +38,7 @@ export default function inicio2() {
             <Card.Body>
             <Card.Title>Percusión</Card.Title>
                 <Card.Text>
-                Percusión, Baterías eléctricas y acústicas, y mucho más
+                Percusión Acústica y Eléctrica, Baterías eléctricas y acústicas, Parquer, Mapex, Yamaha,todas las marcas
                 </Card.Text>
                
             </Card.Body>
