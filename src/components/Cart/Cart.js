@@ -68,9 +68,8 @@ import {getFirestore, collection, addDoc, documentId, writeBatch, getDocs, where
           <div>
           { 
           (productosAgregados() === 0) ?
-            <div className="container my-4">
-              <h4>El carrito de compras se encuentra vacío</h4>
-              <h4>Podés agregar productos desde el botón de "añadir al carrito"</h4>
+            <div className="container my-4 font-weight-bold">
+              <h4>No hay productos en tu Carrito de Compras</h4>
               <button className="btn btn-success mx-2" onClick={()=>navegar('/')}>Inicio</button>
             </div>
             :
