@@ -2,97 +2,76 @@ import React, {useState} from 'react'
 import { useCartContext } from '../Context/CartContext'
 import iconcarrito from "./iconcarrito.png"
 import "./Cart.css"
-import {Col, Container, Form, Row} from "react-bootstrap"
-import { Link } from 'react-router-dom'
-import {getFirestore, collection, addDoc, documentId, writeBatch, getDocs, where, query} from 'firebase/firestore'
-import { LinkContainer } from 'react-router-bootstrap'
-import { Button } from 'bootstrap'
-
-
-
-  
+import {Col, Container, Row} from "react-bootstrap"
+import {  useNavigate } from 'react-router-dom'
+import {getFirestore, collection, addDoc, documentId, writeBatch, getDocs, where, query, orderBy} from 'firebase/firestore'
   function Cart(){
-    const {cartList, vaciarCart, borrarItem, calcularTotal, productosAgregados} = useCartContext()
     const [compraTerminada, setCompraTerminada] = useState(false)
-    const [idOrden, setIdOrden] = useState()
-    const [dataFormulario, setDataFormulario] = useState({ nombre: '', apellido: '', email: '', telefono: '', direccion: '', contraseña: '' });
-    const validarData = () =>{
-      if( dataFormulario.nombre === '' || dataFormulario.apellido === '' || dataFormulario.email === '' || dataFormulario.telefono === "" || dataFormulario.direccion === "" || dataFormulario.contraseña === ""){
-        alert('Ingrese los datos del formulario en los campos vacios')
-        return false
-        }else{
-            return true
-        }
-    }
+    const [idOrden, setIdOrden] = useState(null)
+    const [dataFormulario, setDataFormulario] = useState({ nombre: '', apellido: '', email: '', telefono: '', direccion: '', contrasena: '' });
+    const {cartList, vaciarCart, borrarItem, calcularTotal, productosAgregados} = useCartContext()
+    const navegar = useNavigate()
 
-    const generarOrden = async () => {
-      if(validarData()){
-      var item = cartList.map(cartItem => {
+    const generarOrden = async (e) => {
+      e.preventDefault();
+      if (Object.values(dataFormulario).some(value => value === "")) {
+       alert('Todos los campos son requeridos')
+      }else{
+      let orden = {}
+      orden.comprador = dataFormulario
+      orden.total = calcularTotal()
+      orden.items = cartList.map(cartItem => {
         const id = cartItem.id
         const nombre = cartItem.nombre
         const precio = cartItem.precio
           return {id, nombre, precio}
       })
-      var orden = {
-        comprador: {
-          nombre: dataFormulario.nombre,
-           apellido: dataFormulario.apellido,
-            email: dataFormulario.email,
-             telefono: dataFormulario.telefono,
-              direccion: dataFormulario.direccion,
-               contraseña: dataFormulario.contraseña}, total:calcularTotal(), items:item
-      }
-    
-  
     const db = getFirestore()
     const queryOrdenes = collection (db, 'orden')
-
-    addDoc (queryOrdenes, orden)
-    .then(({id})=> setIdOrden(id))
+    addDoc(queryOrdenes, orden)
+    .then((res)=> setIdOrden(res.id))
     .catch(err => console.log(err))
+    .finally(()=> vaciarCart())
     
     const queryProductos = collection (db, 'productos')
     
-    const queryProductosFillter = await query(queryProductos , where(documentId(),'in',cartList.map(item => item.id)))
+    const queryProductosFillter =  query(queryProductos , where(documentId(),'in',cartList.map(item => item.id)))
     
     const batch = writeBatch(db)
 
-    await getDocs(queryProductosFillter)
-
+     getDocs(queryProductosFillter)
       .then(resp => resp.docs.forEach(res => batch.update(res.ref,{stock : res.data().stock - cartList.find(item => item.id === res.id).cantidad})))
       .finally(setCompraTerminada(true))
-    batch.commit()
-    vaciarCart()
+    // batch.commit()
+    window.scroll(0,0)
+      }
   }
-}
-const handleOnChange = (e) =>{
-  setDataFormulario({...dataFormulario, [e.target.name] : e.target.value
-  })
-}
+  const handleOnChange = (e) =>{
+    setDataFormulario({...dataFormulario, [e.target.name] : e.target.value
+    })
+  }
+
+ 
   return (
-    
-    
       <div className='container my-4'>
         {
           compraTerminada ?
           <div>
             <h3>{dataFormulario.nombre}</h3>
-            <h3>Gracias por su compra</h3>
+            <h3>Gracias por comprar en Instrumental Santa Fe</h3>
             <h3>El Envío se realizará a la dirección: {dataFormulario.direccion}</h3>
             <h3>El codigo de su compra es: </h3>
             <h4>{idOrden}</h4>
-            <LinkContainer to='/'>
-              <Button variant = 'success'>Volver al Inicio</Button>
-            </LinkContainer>
+            <button className='btn btn-success' onClick={()=> navegar('/')}>Volver al Inicio</button>
           </div>
           :
           <div>
           { 
           (productosAgregados() === 0) ?
             <div className="container my-4">
-              <h4>El carrito de compras está vacío</h4>
+              <h4>El carrito de compras se encuentra vacío</h4>
               <h4>Podés agregar productos desde el botón de "añadir al carrito"</h4>
-              <Link to="/" className="btn btn-success mx-2">Inicio</Link>
+              <button className="btn btn-success mx-2" onClick={()=>navegar('/')}>Inicio</button>
             </div>
             :
             <div className="container my-4">
@@ -129,72 +108,78 @@ const handleOnChange = (e) =>{
               <hr/>
               <h2>Total: ${calcularTotal()}</h2>
               <div className="formulario">
-              <h2> Datos de comprador:</h2>
-              <Form>
-                  <Form.Group as={Col} controlId="formGridNombre">
-                  <Form.Label>Nombre</Form.Label>
-                  <Form.Control 
+              <h2> Datos del comprador:</h2>
+              <form onSubmit={generarOrden}>
+                <div className='form-group'>
+                <label>Nombre</label>
+                  <input 
+                  className='form-control'
                   name="nombre"
                   type="name"
                   placeholder="Ingresar Nombre"                         
                   value={dataFormulario.nombre} 
                   onChange={handleOnChange}/>
-                  </Form.Group>
-
-                  <Form.Group as={Col} controlId="formGridApellido">
-                  <Form.Label>Apellido</Form.Label>
-                  <Form.Control 
+                </div>
+                  <div className='form-group'>
+                  <label>Apellido</label>
+                  <input
+                  className='form-control'
                   name="apellido"
                   type="lastname"
                   placeholder="Ingresar Apellido" 
                   value={dataFormulario.apellido} 
                   onChange={handleOnChange}/>
-                  </Form.Group>
-                  
-
-                  <Form.Group className="mb-3" controlId="formGridmail">
-                  <Form.Label>Dirección de correo electrónico</Form.Label>
-                  <Form.Control
+                  </div>
+                 
+                  <div className='form-group'>
+                  <label>Correo electrónico</label>
+                  <input
+                  className='form-control'
                   name="email"
                   type="email" 
                   placeholder="Enter email" 
                   value={dataFormulario.email} 
                   onChange={handleOnChange}/>
-                  </Form.Group>
-
-                  <Form.Group className="mb-3" controlId="formGridTelefono">
-                  <Form.Label>Telefono</Form.Label>
-                  <Form.Control 
+                  </div>
+                 
+                  <div className='form-group'>
+                  <label>Celular</label>
+                  <input 
+                  className='form-control'
                   name="telefono"
                   type="phone"
                   placeholder="Ingresar Telefono" 
                   value={dataFormulario.telefono} 
                   onChange={handleOnChange}/>
-                  </Form.Group>
-
-                  <Form.Group className="mb-3" controlId="formGridDireccion">
-                  <Form.Label>Dirección de entrega</Form.Label>
-                  <Form.Control 
+                  </div>
+                 
+                  <div className='form-group'>
+                  <label>Dirección de entrega</label>
+                  <input
+                 
+                  className='form-control'
                   name="direccion"
                   type="direcction"
                   placeholder="Ingresar dirección" 
                   value={dataFormulario.direccion} 
                   onChange={handleOnChange}/>
-                  </Form.Group>
-
-                  <Form.Group className="mb-3" controlId="formGridpassword">
-                  <Form.Label>Contraseña</Form.Label>
-                  <Form.Control 
-                  name="contraseña"
+                  </div>
+                 
+                  <div className='form-group'>
+                  <label>Contraseña</label>
+                  <input
+                  className='form-control'
+                  name="contrasena"
                   type="password"
                   placeholder="Ingresar contraseña" 
-                  value={dataFormulario.contraseña} 
+                  value={dataFormulario.contrasena} 
                   onChange={handleOnChange}/>
-                  </Form.Group>
-                  <button onClick={vaciarCart} variant="danger">Vaciar el carrito</button>{' '}
-                  <Link to="/"><button variant="primary">Volver al Catálogo</button></Link>
-                  <button onClick={generarOrden} variant ="success">Finalizar compra</button>
-              </Form>
+                  </div>
+                  
+                  <button onClick={generarOrden} className=" btn btn-success">Finalizar la compra</button>
+              </form>
+                  <button onClick={vaciarCart} className="btn btn-danger">Vaciar el carrito</button>
+                  <button onClick={()=>navegar('/')}  className="btn btn-primary">Volver al Catálogo</button>
               </div>
         </div>
       }

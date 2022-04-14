@@ -5,8 +5,7 @@ import { Col, Container, Row } from 'react-bootstrap'
 import ItemCount from '../ItemCount/ItemCounter'
 import { Link } from 'react-router-dom'
 import { useCartContext } from '../Context/CartContext'
-import { LinkContainer } from 'react-router-bootstrap'
-import { Button } from 'bootstrap'
+
 
 
 export default function ItemDetail({producto}) {
