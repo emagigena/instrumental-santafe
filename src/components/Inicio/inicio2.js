@@ -43,7 +43,7 @@ export default function inicio2() {
                
             </Card.Body>
             </Card>
-        </div>
+        </div> 
     </div>
             
   )

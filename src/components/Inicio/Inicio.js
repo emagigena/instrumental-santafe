@@ -10,9 +10,6 @@ function Inicio() {
      
               <Carousel>
               <Carousel.Item>
-              <video className="uno" src="https://l6c-acdn2.line6.net/data/6/0a020a3fdbc96241dab5ce3cc/video/mp4/CATALYST_WEB_V6_TITLES_FINAL.mp4" alt="First slide"/>
-              </Carousel.Item>
-              <Carousel.Item>
               <img className="dos" src="https://productos.mjmusic.com.ar/slider/0000000346631micsAudix.jpg" alt="First slide"/>
               </Carousel.Item>
               <Carousel.Item>

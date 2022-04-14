@@ -1,31 +1,27 @@
-h1{
-    color: white;
-    background-color: black;
-}
-.d-flex{
+.d-flex4{
     float: left;
-    margin: 0 35px;
     padding: 10px;
+    margin: 0 35px;
     transition: transform .2s;
 }
-.d-flex:hover{
+.d-flex4:hover{
     transform: scale(1.1)
 }
-.d-flex2{
-    padding: 10px;
-   float: left;
-    margin: 0 35px;
-    transition: transform .2s;
-}   
-.d-flex2:hover{
-    transform: scale(1.1)
-} 
-.d-flex3{
-    padding: 10px;
+.d-flex5{
     float: left;
+    padding: 10px;
     margin: 0 35px;
     transition: transform .2s;
 }
-.d-flex3:hover{
+.d-flex5:hover{
+    transform: scale(1.1)
+}
+.d-flex6{
+    float: left;
+    padding: 10px;
+    margin: 0 35px;
+    transition: transform .2s; 
+}
+.d-flex6:hover{
     transform: scale(1.1)
 }
