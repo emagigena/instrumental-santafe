@@ -4,7 +4,8 @@ import iconcarrito from "./iconcarrito.png"
 import "./Cart.css"
 import {Col, Container, Row} from "react-bootstrap"
 import {  useNavigate } from 'react-router-dom'
-import {getFirestore, collection, addDoc, documentId, writeBatch, getDocs, where, query, orderBy} from 'firebase/firestore'
+import {getFirestore, collection, addDoc, documentId, writeBatch, getDocs, where, query} from 'firebase/firestore'
+import Footer from '../Footer/Footer'
   function Cart(){
     const [compraTerminada, setCompraTerminada] = useState(false)
     const [idOrden, setIdOrden] = useState(null)
@@ -43,7 +44,7 @@ import {getFirestore, collection, addDoc, documentId, writeBatch, getDocs, where
       .then(resp => resp.docs.forEach(res => batch.update(res.ref,{stock : res.data().stock - cartList.find(item => item.id === res.id).cantidad})))
       .finally(setCompraTerminada(true))
     // batch.commit()
-    window.scroll(0,0)
+    window.scroll(1,1)
       }
   }
   const handleOnChange = (e) =>{
@@ -53,6 +54,7 @@ import {getFirestore, collection, addDoc, documentId, writeBatch, getDocs, where
 
  
   return (
+    <div>
       <div className='container my-4'>
         {
           compraTerminada ?
@@ -163,17 +165,7 @@ import {getFirestore, collection, addDoc, documentId, writeBatch, getDocs, where
                   value={dataFormulario.direccion} 
                   onChange={handleOnChange}/>
                   </div>
-                 
-                  <div className='form-group'>
-                  <label>Contraseña</label>
-                  <input
-                  className='form-control'
-                  name="contrasena"
-                  type="password"
-                  placeholder="Ingresar contraseña" 
-                  value={dataFormulario.contrasena} 
-                  onChange={handleOnChange}/>
-                  </div>
+
                   
                   <button onClick={generarOrden} className=" btn btn-success">Finalizar la compra</button>
               </form>
@@ -184,6 +176,9 @@ import {getFirestore, collection, addDoc, documentId, writeBatch, getDocs, where
       }
     </div>
   }
+  
+</div>
+<Footer/>
 </div>
 )}
 

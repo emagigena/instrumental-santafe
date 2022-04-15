@@ -4,7 +4,7 @@ import './ItemListConteiner.css'
 import Spinner from 'react-bootstrap/Spinner'
 import { useParams } from 'react-router-dom'
 import {collection, getDocs, getFirestore, query, where} from 'firebase/firestore'
-
+import Footer from "../Footer/Footer"
 export default function ItemListConteiner(  ) {
   const [productos, setProductos] = useState([])
   const [loading, setLoading] = useState(true)
@@ -29,6 +29,7 @@ export default function ItemListConteiner(  ) {
 },[categoriaID])
  
   return (
+    <div>
     <div className='container'>
     <div className='ItemsContainer'>
       { 
@@ -37,6 +38,8 @@ export default function ItemListConteiner(  ) {
         <ItemList  productos = {productos} />  
       }
     </div>
+    </div>
+    <Footer/>
     </div>
   )
 }

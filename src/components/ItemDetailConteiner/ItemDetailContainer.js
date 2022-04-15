@@ -4,6 +4,7 @@ import { Spinner } from 'react-bootstrap'
 import './ItemDetailContainer.css'
 import { useParams } from 'react-router-dom'
 import {doc, getDoc, getFirestore} from "firebase/firestore"
+import Footer from "../Footer/Footer"
 
 export default function ItemDetailContainer({}) {
   
@@ -12,7 +13,7 @@ export default function ItemDetailContainer({}) {
   const [item, setItem] = useState({})
   
   const [loading , setLoading] = useState(true)   
-
+  
     useEffect(() =>{
       
     const db = getFirestore()
@@ -21,14 +22,23 @@ export default function ItemDetailContainer({}) {
         .then   (respuesta => setItem( { id: respuesta.id , ...respuesta.data() } ))
         .catch  (error     => {console.log ( error )})
         .finally(()        => {setLoading  ( false )})
-    },[])
+        
+      },[])
+    
     return (
+      <div className='container'>
     <div className='ItemDetailContainer'>
+    
       {
         loading ?
         <Spinner animation="grow" /> :
         <ItemDetail producto={item} />    
+        
+      
       }
+    </div>
+    
+    <Footer/>
     </div>
   )
 }

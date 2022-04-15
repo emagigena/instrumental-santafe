@@ -7,14 +7,12 @@ import Cart from './components/Cart/Cart';
 import CartContextProvider from './components/Context/CartContext';
 import Inicio from './components/Inicio/InicioContainer';
 import UserContextProvider from './components/Context/UserContext';
-import Footer from './components/Footer/Footer'
-
-
 
 
 function App() {
 
-  return(  
+  return( 
+    
     <div className='App'>
       {
       <CartContextProvider>
@@ -26,7 +24,6 @@ function App() {
               {<Route path='/Cart' element={<Cart/>}/>}
               {<Route path={'/categoria/:categoriaID'} element={<ItemListConteiner />} />}
               {<Route path={'/detalle/:detalleID'} element={<ItemDetailContainer />} />}
-              {<Route path={'/Footer/:footer'}element={<Footer/>}/>}
             </Routes>
           </Router>
         </UserContextProvider>
