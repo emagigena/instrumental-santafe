@@ -17,7 +17,7 @@ Iniciar la App: `npm start`
 El proyecto Iniciará en: **localhost:3000**
 ##### GIF APP
 
-![](https://firebasestorage.googleapis.com/v0/b/instrumental-santa-fe.appspot.com/o/imagenes%20del%20inicio%2FInstrumental%20Santa%20Fe%20-%20Opera%202022-04-18%2009-32-29.gif?alt=media&token=e4d76bf7-1efb-4035-bcf8-b45305f7e217)
+![image](https://firebasestorage.googleapis.com/v0/b/instrumental-santa-fe.appspot.com/o/imagenes%20del%20inicio%2FInstrumental%20Santa%20Fe%20-%20Opera%202022-04-18%2009-32-29.gif?alt=media&token=e4d76bf7-1efb-4035-bcf8-b45305f7e217)
 >Gif de la Ecommerce
 
 ###Logo Instrumental Santa Fe
