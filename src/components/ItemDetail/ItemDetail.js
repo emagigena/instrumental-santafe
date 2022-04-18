@@ -11,7 +11,6 @@ import { useCartContext } from '../Context/CartContext'
 export default function ItemDetail({producto}) {
   const [state, setState] = useState(true)
   const [foto, setFoto] = useState(producto.fotos[0])
-  const [cantidad,setCantidad] = useState(0)
   const {agregarCart} = useCartContext()
   const cambiarfoto1 =()=>{
     setFoto(producto.fotos[0])
@@ -21,7 +20,6 @@ export default function ItemDetail({producto}) {
   }
     const onAdd = (cantidad) => {
         if(cantidad !== 0){
-          setCantidad(cantidad)
           setState(!state)
         }
         agregarCart({...producto, cantidad:cantidad})
@@ -36,12 +34,12 @@ export default function ItemDetail({producto}) {
             <Col className='FirstCol' xs={1}>
               <li onClick={cambiarfoto1}>
                 <Card>
-                <img src={producto.fotos[0]} />
+                <img src={producto.fotos[0]}/>
                 </Card>
               </li>
               <li onClick={cambiarfoto2}>
                 <Card>
-                  <img src={producto.fotos[1]} />
+                  <img src={producto.fotos[1]}/>
                 </Card>
               </li>
             </Col>
@@ -60,7 +58,7 @@ export default function ItemDetail({producto}) {
                 <ItemCount stock={producto.stock} initial={1} onAdd={onAdd}/>
                 :
                 <Link to="/Cart">
-                  <button variant= "primary" size="lg">Comprar Ahora</button>
+                  <button variant= "primary" size="lg">Comprar ahora</button>
                 </Link>
               }
               </Card>

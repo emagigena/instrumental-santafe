@@ -9,7 +9,7 @@ import Footer from '../Footer/Footer'
   function Cart(){
     const [compraTerminada, setCompraTerminada] = useState(false)
     const [idOrden, setIdOrden] = useState(null)
-    const [dataFormulario, setDataFormulario] = useState({ nombre: '', apellido: '', email: '', telefono: '', direccion: '', contrasena: '' });
+    const [dataFormulario, setDataFormulario] = useState({ nombre: '', apellido: '', email: '', telefono: '', direccion: ''});
     const {cartList, vaciarCart, borrarItem, calcularTotal, productosAgregados} = useCartContext()
     const navegar = useNavigate()
 
@@ -43,7 +43,6 @@ import Footer from '../Footer/Footer'
      getDocs(queryProductosFillter)
       .then(resp => resp.docs.forEach(res => batch.update(res.ref,{stock : res.data().stock - cartList.find(item => item.id === res.id).cantidad})))
       .finally(setCompraTerminada(true))
-    // batch.commit()
     window.scroll(1,1)
       }
   }
@@ -111,62 +110,33 @@ import Footer from '../Footer/Footer'
               <div className="formulario">
               <h2> Formulario de Compra:</h2>
               <form onSubmit={generarOrden}>
+                
                 <div className='form-group'>
                 <label>Nombre</label>
-                  <input 
-                  className='form-control'
-                  name="nombre"
-                  type="name"
-                  placeholder="Ingresar Nombre"                         
-                  value={dataFormulario.nombre} 
+                  <input className='form-control' name="nombre" type="name" placeholder="Ingrese su Nombre" value={dataFormulario.nombre} onChange={handleOnChange}/>
+                </div>
+                
+                <div className='form-group'>
+                <label>Apellido</label>
+                  <input className='form-control' name="apellido" type="lastname" placeholder="Ingrese su Apellido" value={dataFormulario.apellido} onChange={handleOnChange}/>
+                </div>
+                
+                <div className='form-group'>
+                <label>Correo electrónico</label>
+                <input className='form-control' name="email" type="email" placeholder="Ingrese su email" value={dataFormulario.email} onChange={handleOnChange}/>
+                </div>
+
+                <div className='form-group'>
+                <label>Celular</label>
+                  <input className='form-control' name="telefono" type="phone" placeholder="Ingrese su Telefono" value={dataFormulario.telefono} onChange={handleOnChange}/>
+                </div>
+
+                <div className='form-group'>
+                <label>Dirección</label>
+                  <input className='form-control' name="direccion" type="direcction" placeholder="Ingrese su dirección" value={dataFormulario.direccion} 
                   onChange={handleOnChange}/>
                 </div>
-                  <div className='form-group'>
-                  <label>Apellido</label>
-                  <input
-                  className='form-control'
-                  name="apellido"
-                  type="lastname"
-                  placeholder="Ingresar Apellido" 
-                  value={dataFormulario.apellido} 
-                  onChange={handleOnChange}/>
-                  </div>
-                 
-                  <div className='form-group'>
-                  <label>Correo electrónico</label>
-                  <input
-                  className='form-control'
-                  name="email"
-                  type="email" 
-                  placeholder="Enter email" 
-                  value={dataFormulario.email} 
-                  onChange={handleOnChange}/>
-                  </div>
-                 
-                  <div className='form-group'>
-                  <label>Celular</label>
-                  <input 
-                  className='form-control'
-                  name="telefono"
-                  type="phone"
-                  placeholder="Ingresar Telefono" 
-                  value={dataFormulario.telefono} 
-                  onChange={handleOnChange}/>
-                  </div>
-                 
-                  <div className='form-group'>
-                  <label>Dirección de entrega</label>
-                  <input
-                 
-                  className='form-control'
-                  name="direccion"
-                  type="direcction"
-                  placeholder="Ingresar dirección" 
-                  value={dataFormulario.direccion} 
-                  onChange={handleOnChange}/>
-                  </div>
 
-                  
                   <button onClick={generarOrden} className=" btn btn-success">Finalizar la compra</button>
               </form>
                   <button onClick={vaciarCart} className="btn btn-danger">Vaciar el carrito</button>
@@ -176,7 +146,6 @@ import Footer from '../Footer/Footer'
       }
     </div>
   }
-  
 </div>
 <Footer/>
 </div>
