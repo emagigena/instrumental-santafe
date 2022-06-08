@@ -78,10 +78,10 @@ import Footer from '../Footer/Footer'
               <h4>Carrito de compras:</h4>
               <hr/>
               <Container>
-                <Row>
-                  <Col xs={2}><h6>Productos</h6></Col>
-                  <Col xs={5}></Col>
-                  <Col xs={1}><h6>Precio</h6></Col>
+                <Row id='RowCard'>
+                  <Col xs={1}><h6>Productos</h6></Col>
+                  <Col xs={1}></Col>
+                  <Col xs={2}><h6>Precio</h6></Col>
                   <Col xs={1}><h6>Cantidad</h6></Col>
                   <Col xs={1}><h6>Subtotal</h6></Col>
                   <Col xs={1}><h6>Quitar del Carrito</h6></Col>
@@ -91,13 +91,13 @@ import Footer from '../Footer/Footer'
           
           {
             cartList.map((item) => (
-              <div key={item.id} className='mt-3'>
+              <div key={item.id} className='mt-1'>
               <Container>
-                <Row>
-                  <Col xs={2}><img src={item.fotos[0]} class="rounded" width={'150'}></img></Col>
-                  <Col xs={5}><h4>{item.nombre}</h4></Col>
+                <Row id='RowCard'>
+                  <Col xs={1}><img src={item.fotos[0]} class="rounded" width={'150'}></img></Col>
+                  <Col xs={2}><h5>{item.nombre}</h5></Col>
                   <Col xs={1}><h5>${item.precio}</h5></Col>
-                  <Col xs={1}><p>Cantidad: {item.cantidad}</p></Col>
+                  <Col xs={2}><p>Cantidad: {item.cantidad}</p></Col>
                   <Col xs={1}><h5>${item.cantidad * item.precio}</h5></Col>
                   <Col xs={1}><img src={iconcarrito} className='iconcarrito' alt='iconcarrito' onClick={() => borrarItem(item.id)}></img></Col>
                 </Row>

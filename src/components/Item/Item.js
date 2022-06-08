@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 function Item ( {prod} ) {
     return(
     <li>
-        <Card>
+        <Card className='card1'>
             <ShowCarousel fotos={prod.fotos}/>
             <Card.Body>
                 <Card.Title>{prod.nombre}</Card.Title>

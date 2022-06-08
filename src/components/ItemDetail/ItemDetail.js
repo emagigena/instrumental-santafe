@@ -30,7 +30,7 @@ export default function ItemDetail({producto}) {
   <header className='ItemDetail'>
     <Card>
         <Container>
-          <Row>
+          <Row id='RowItem'>
             <Col className='FirstCol' xs={1}>
               <li onClick={cambiarfoto1}>
                 <Card>
@@ -44,7 +44,7 @@ export default function ItemDetail({producto}) {
               </li>
             </Col>
             <Col className='SecondCol' xs={7}>
-              <img src={foto} />
+              <img id='foto' src={foto} />
             </Col>
             <Col className='ThirdCol' xs={4}>
               <Card className='InfoCard' >

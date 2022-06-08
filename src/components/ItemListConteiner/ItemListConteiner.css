@@ -1,3 +1,14 @@
+@media (min-width: 728px){
+    .ItemsContainer{
+        display: flex;  
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+    
+    
+}
+
 .ItemsContainer{
     text-align: center;
     padding: 1em;
@@ -5,10 +16,10 @@
     display:block;
     justify-content: center;
     list-style: none;
-    height: 1200px;
+    
 }
 .ItemsContainer li{
-    display:    inline-block;
+    display:flex;
     list-style: none; 
     margin: auto;
     padding: 2em;

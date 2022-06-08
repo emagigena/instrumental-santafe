@@ -8,7 +8,7 @@ export default function inicio2() {
          
 
          <div className="d-flex">
-            <Card style={{ width: '18rem' }}>
+            <Card className='cards' style={{ width: "18rem" }}>
             <Card.Img variant="top" src="https://productos.mjmusic.com.ar/images/00000000000M4UEX92422M4UEX.jpg" />
             <Card.Body>
                 <Card.Title>Monitores Amps Bafles y Sistemas de Audio</Card.Title>
@@ -20,8 +20,8 @@ export default function inicio2() {
             </Card>
             </div>
         
-        <div className='d-flex2'>
-            <Card style={{ width: '18rem' }}>
+        <div className='d-flex'>
+            <Card className='cards' style={{ width: '18rem' }}>
             <Card.Img variant="top" src="https://productos.mjmusic.com.ar/images/00000000000K270063628k2700-1.jpg" />
             <Card.Body>
             <Card.Title>Pianos Teclados y Controladores</Card.Title>
@@ -32,8 +32,8 @@ export default function inicio2() {
             </Card.Body>
             </Card>
      </div>
-        <div className='d-flex3'>
-            <Card style={{ width: '18rem' }}>
+        <div className='d-flex'>
+            <Card className='cards' style={{ width: '18rem' }}>
             <Card.Img variant="top" src="https://productos.mjmusic.com.ar/images/00VTTHREE22NMCAB65652VTTHREE22NMCAB.jpg" />
             <Card.Body>
             <Card.Title>Percusión</Card.Title>

@@ -1,3 +1,12 @@
+@media (min-width: 728px){
+    
+        #RowCard{
+            display: flex;
+            flex-direction: column;
+        }
+        
+    
+}
 .descripcionCart{
     text-align: center;
     color: rgb(255, 255, 255);
@@ -33,3 +42,7 @@
     margin: 10px 20px;
 }
 
+#RowCard{
+    display: flex;
+    flex-direction: row;
+}

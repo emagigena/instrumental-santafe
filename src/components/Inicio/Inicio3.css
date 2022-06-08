@@ -1,27 +1,36 @@
-.d-flex4{
+@media (max-width: 728px){
+    .CardInfo{
+        display: flex;  
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+    .d-flex{  
+        float:none;   
+    }
+    li{
+        align-items: center;
+    }
+}
+@media (min-width: 728px){
+    .CardInfo{
+        width: 100%;
+        float:none;
+        
+    }
+    .d-flex{
+        float:none;
+        width: 33%;
+        margin: 0.1% !important;
+        padding: 1%;
+    }
+}
+.d-flex{
     float: left;
     padding: 10px;
     margin: 0 35px;
     transition: transform .2s;
 }
-.d-flex4:hover{
-    transform: scale(1.1)
-}
-.d-flex5{
-    float: left;
-    padding: 10px;
-    margin: 0 35px;
-    transition: transform .2s;
-}
-.d-flex5:hover{
-    transform: scale(1.1)
-}
-.d-flex6{
-    float: left;
-    padding: 10px;
-    margin: 0 35px;
-    transition: transform .2s; 
-}
-.d-flex6:hover{
+.d-flex:hover{
     transform: scale(1.1)
 }

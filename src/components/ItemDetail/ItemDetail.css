@@ -1,3 +1,10 @@
+@media (max-width: 1100px){
+    #RowItem{
+        display: flex;
+        flex-direction: column;
+    }
+}
+
 .ItemDetail {
     padding: 1em;
     display:block;
@@ -33,4 +40,24 @@
 .InfoCard{
     width: '18rem';
     padding: 100px;
+}
+
+#RowItem{
+    display: flex;
+    flex-direction: row;
+}
+
+@media (max-width: 1100px){
+    #RowItem{
+        display: flex;
+        flex-direction: column;
+    }
+    .SecondCol, .ThirdCol,#foto{
+        width: 100% !important  ;
+    }
+
+    .InfoCard{
+        padding: 0;
+        width: 100%;
+    }
 }
