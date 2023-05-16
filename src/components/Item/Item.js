@@ -11,7 +11,7 @@ function Item ( {prod} ) {
         <Card className='card1'>
             <ShowCarousel fotos={prod.fotos}/>
             <Card.Body>
-                <Card.Title>{prod.nombre}</Card.Title>
+                <Card.Title className='ProductName'>{prod.nombre}</Card.Title>
                 <Card.Title>$ {prod.precio}</Card.Title>
                 <Link to={`/detalle/${prod.id}`}>
                     <Button variant="primary">Ver el detalle</Button>

@@ -1,63 +1,65 @@
-@media (max-width: 1100px){
-    #RowItem{
-        display: flex;
-        flex-direction: column;
-    }
-}
-
 .ItemDetail {
-    padding: 1em;
-    display:block;
-    justify-content: center;
-    list-style: none;
-    height: 1200px;
-    /*background: linear-gradient(45deg, rgb(131, 209, 29),rgb(67, 78, 47),rgb(135, 84, 253),rgb(250, 208, 19));*/
-    
-}
-.FirstCol {
-     padding: 12px 0px;
-}
-.FirstCol li{
-    padding-top: 12px;
-}
-.FirstCol img{
-    width: 80px;
-    height: 80px;
+  padding: 1em;
 }
 
-.SecondCol{
-    justify-content: center;
+.ImageContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+}
+
+.ImageContainer img {
+  width: auto;
+  max-height: auto;
+  object-fit: cover;
+  margin-bottom: 1em;
+}
+
+.PhotoList {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background-color: white;
+}
+
+.PhotoList li {
+  cursor: pointer;
+  margin-right: 0.5em;
+}
+
+.PhotoList li img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+}
+
+.InfoContainer {
+  padding: 1em;
+  background-color: white;
+}
+
+.InfoContainer h2 {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 767px) {
+  .ItemDetail {
     display: flex;
-}
-.SecondCol img{
-    width: 80%;
-    height: 100%;
-}
+    flex-direction: column;
+    align-items: center;
+  }
 
-.ThirdCol{
-    padding-top: 12px;
-}
-.InfoCard{
-    width: '18rem';
-    padding: 100px;
-}
+  .ImageContainer {
+    width: 100%;
+  }
 
-#RowItem{
-    display: flex;
-    flex-direction: row;
-}
-
-@media (max-width: 1100px){
-    #RowItem{
-        display: flex;
-        flex-direction: column;
-    }
-    .SecondCol, .ThirdCol,#foto{
-        width: 100% !important  ;
-    }
-
-    .InfoCard{
-        padding: 0;
-        width: 100%;
-    }
+  .ImageContainer img {
+    max-height: 300px;
+  }
 }

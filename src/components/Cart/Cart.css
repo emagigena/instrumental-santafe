@@ -34,8 +34,8 @@
 .my-4{
     color: rgb(0, 0, 0);
     background-color: rgb(255, 255, 255);
-    margin: 10px 280px;
-    border-radius: 3%;
+    margin: 50px;
+    padding: 50px;
 }
 .formulario .btn{
     padding: 10px;
