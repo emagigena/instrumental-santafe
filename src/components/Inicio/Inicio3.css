@@ -11,12 +11,21 @@
     li{
         align-items: center;
     }
+    .cards {
+        z-index: 99;
+    }
+}
+.cards {
+    z-index: 99;
 }
 @media (min-width: 728px){
     .CardInfo{
         width: 100%;
         float:none;
         
+    }
+    .cards {
+        z-index: 99;
     }
     .d-flex{
         float:none;

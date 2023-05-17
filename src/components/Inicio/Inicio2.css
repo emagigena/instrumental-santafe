@@ -29,6 +29,10 @@
     }
 }
 
+.cards {
+    z-index: 99;
+}
+
 h1{
     color: white;
     background-color: black;

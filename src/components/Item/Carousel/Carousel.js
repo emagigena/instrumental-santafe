@@ -4,6 +4,7 @@ import './Carousel.css'
 
 
 function ShowCarousel( {fotos} ) {
+  console.log(fotos);
   return (
 <div>
     <Carousel className='carousell' variant="dark" interval={null}>
