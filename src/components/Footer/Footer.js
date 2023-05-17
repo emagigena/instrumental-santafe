@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 import { Container, Row, Col } from 'react-bootstrap';
+import logoinstrumental from "./logoinstrumental.png";
+
 import "./Footer.css";
 
 const Footer = () => {
@@ -11,7 +13,7 @@ const Footer = () => {
           <Row>
             <Col>
               <Link to='/'>
-                <img src='https://firebasestorage.googleapis.com/v0/b/instrumental-santa-fe.appspot.com/o/imagenes%20del%20inicio%2Flogoinstrumental.png?alt=media&token=7afaae90-4487-4725-b95f-9638c852f49d' className='mx-2' alt='hola' height='90' />
+                <img src={logoinstrumental} className='mx-2' alt='' height='90' />
               </Link>
             </Col>
             <Col>
